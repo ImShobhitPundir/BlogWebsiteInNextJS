@@ -50,16 +50,16 @@ export default function SingleArticle({ post, relatedPost }) {
         <meta name="robots" content="index, follow"/>
         <meta name="referrer" content="no-referrer-when-downgrade"/>
         <meta name="revisit-after" content="7 days"/>
-        <meta name="image" content={`${baseUrl}sp-logo.png`}/>
+        <meta name="image" content={`http://spundir.in/l9_blog/storage/blog/${post.blog.image1}`}/>
         <meta property="og:title" content={post.blog.title} />
         <meta property="og:description" content={post.blog.short_description}/>
-        <meta property="og:image" content={`${baseUrl}sp-logo.png`}/>
-        <meta property="og:url" content={baseUrl}/>
+        <meta property="og:image" content={`http://spundir.in/l9_blog/storage/blog/${post.blog.image1}`}/>
+        <meta property="og:url" content={`${baseUrl}article/${post.blog.url}`}/>
         <meta property="og:type" content="website"/>
         <meta name="twitter:card" content="summary_large_image"/>
         <meta name="twitter:title" content={post.blog.title}/>
         <meta name="twitter:description" content={post.blog.short_description}/>
-        <meta name="twitter:image" content={`${baseUrl}sp-logo.png`}></meta>
+        <meta name="twitter:image" content={`http://spundir.in/l9_blog/storage/blog/${post.blog.image1}`}></meta>
       </Head>
       {/* Progress Bar */}
 
