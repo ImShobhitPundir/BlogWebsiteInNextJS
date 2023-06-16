@@ -9,6 +9,12 @@ import Shimmer from "@/components/Shimmer";
 import Footer from "@/components/Footer";
 import StickyNav from "@/components/StickyNav";
 import { baseUrl } from "@/utils/baseUrls";
+import {
+  FacebookShareButton,
+  WhatsappShareButton,
+  TwitterShareButton,
+  LinkedinShareButton,
+} from "react-share";
 
 export default function SingleArticle({ post, relatedPost }) {
   const [isLoading, setIsLoading] = useState(true);
@@ -21,8 +27,7 @@ export default function SingleArticle({ post, relatedPost }) {
   useEffect(() => {
     function handleProgress() {
       const contentDiv = document.getElementById("content");
-      const totalHeight =
-      contentDiv.scrollHeight - window.innerHeight + 200;
+      const totalHeight = contentDiv.scrollHeight - window.innerHeight + 200;
       const currentHeight = window.scrollY;
       const scrollPercentage = (currentHeight / totalHeight) * 100;
       setProgress(Math.round(scrollPercentage));
@@ -33,33 +38,50 @@ export default function SingleArticle({ post, relatedPost }) {
     };
   }, []);
 
- 
-
   return (
     <>
       <Head>
-        
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta http-equiv="X-UA-Compatible" content="ie=edge" />
         <title>{post.blog.title}</title>
-        <link rel="icon" type="image/png" sizes="32x32" href="/sp-favicon.png"/>
-        <meta name="description" content={post.blog.short_description}/>
-        <meta name="keywords" content={post.blog.keywords}/>
-        <meta name="author" content="Shobhit Pundir"/>
-        <meta name="robots" content="index, follow"/>
-        <meta name="referrer" content="no-referrer-when-downgrade"/>
-        <meta name="revisit-after" content="7 days"/>
-        <meta name="image" content={`https://spundir.in/l9_blog/storage/blog/${post.blog.image1}`}/>
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="32x32"
+          href="/sp-favicon.png"
+        />
+        <meta name="description" content={post.blog.short_description} />
+        <meta name="keywords" content={post.blog.keywords} />
+        <meta name="author" content="Shobhit Pundir" />
+        <meta name="robots" content="index, follow" />
+        <meta name="referrer" content="no-referrer-when-downgrade" />
+        <meta name="revisit-after" content="7 days" />
+        <meta
+          name="image"
+          content={`https://spundir.in/l9_blog/storage/blog/${post.blog.image1}`}
+        />
         <meta property="og:title" content={post.blog.title} />
-        <meta property="og:description" content={post.blog.short_description}/>
-        <meta property="og:image" content={`https://spundir.in/l9_blog/storage/blog/${post.blog.image1}`}/>
-        <meta property="og:url" content={`${baseUrl}article/${post.blog.url}`}/>
-        <meta property="og:type" content="website"/>
-        <meta name="twitter:card" content="summary_large_image"/>
-        <meta name="twitter:title" content={post.blog.title}/>
-        <meta name="twitter:description" content={post.blog.short_description}/>
-        <meta name="twitter:image" content={`https://spundir.in/l9_blog/storage/blog/${post.blog.image1}`}></meta>
+        <meta property="og:description" content={post.blog.short_description} />
+        <meta
+          property="og:image"
+          content={`https://spundir.in/l9_blog/storage/blog/${post.blog.image1}`}
+        />
+        <meta
+          property="og:url"
+          content={`${baseUrl}article/${post.blog.url}`}
+        />
+        <meta property="og:type" content="website" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={post.blog.title} />
+        <meta
+          name="twitter:description"
+          content={post.blog.short_description}
+        />
+        <meta
+          name="twitter:image"
+          content={`https://spundir.in/l9_blog/storage/blog/${post.blog.image1}`}
+        ></meta>
       </Head>
       {/* Progress Bar */}
 
@@ -70,19 +92,57 @@ export default function SingleArticle({ post, relatedPost }) {
             <h1 className="font-extrabold md:text-5xl text-3xl text-left my-4 text-gray-800">
               {post.blog.title}
             </h1>
-            <div className="mt-6 border-y p-3 text-gray-500">
-              <Link href={`/${post.blog.category_url}`}>
-                <span className="">{post.blog.category_name}</span>
-              </Link>{" "}
-              |{" "}
-              <span>
-                {readTime(
-                  post.blog.short_description.length +
-                    post.blog.long_description.length
-                )}{" "}
-                Min Read
-              </span>{" "}
-              | <span>{fDate(post.blog.date)}</span>
+            <div className="mt-6 border-y px-3 text-gray-500 flex justify-between place-items-center">
+
+              <div>
+                <Link href={`/${post.blog.category_url}`}>
+                  <span className="">{post.blog.category_name}</span>
+                </Link>{" "}
+                |{" "}
+                <span>
+                  {readTime(
+                    post.blog.short_description.length +
+                      post.blog.long_description.length
+                  )}{" "}
+                  Min Read
+                </span>{" "}
+                | <span>{fDate(post.blog.date)}</span>
+              </div>
+
+              <div>
+                <FacebookShareButton url={`${baseUrl}article/${post.blog.url}`}>
+                  <img
+                    src="/social/fb.png"
+                    alt="Facebook"
+                    width={45}
+                    height={45}
+                  />
+                </FacebookShareButton>
+                <WhatsappShareButton url={`${baseUrl}article/${post.blog.url}`}>
+                  <img
+                    src="/social/wp.png"
+                    alt="Facebook"
+                    width={50}
+                    height={50}
+                  />
+                </WhatsappShareButton>
+                <LinkedinShareButton url={`${baseUrl}article/${post.blog.url}`}>
+                  <img
+                    src="/social/li.png"
+                    alt="Facebook"
+                    width={45}
+                    height={45}
+                  />
+                </LinkedinShareButton>
+                <TwitterShareButton url={`${baseUrl}article/${post.blog.url}`}>
+                  <img
+                    src="/social/tw.png"
+                    alt="Facebook"
+                    width={48}
+                    height={48}
+                  />
+                </TwitterShareButton>
+              </div>
             </div>
 
             <img
@@ -148,7 +208,9 @@ export async function getServerSideProps(context) {
   const { params, req, res, query } = context;
   const url = params.postUrl;
 
-  const data = await fetch(`https://spundir.in/l9_blog/api/pblog/single/${url}`);
+  const data = await fetch(
+    `https://spundir.in/l9_blog/api/pblog/single/${url}`
+  );
   const result = await data.json();
 
   const catID = result.blog.category_id;

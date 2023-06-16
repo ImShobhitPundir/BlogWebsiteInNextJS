@@ -83,7 +83,7 @@ export default function Index({ result, sidebarPosts, catResult }) {
     <>
       <div className="grid md:grid-cols-12 gred-cols flex">
         <div className="col-span-8">
-          <div className="md:max-w-full max-w-[400px] overflow-x-auto text-sm text-gray-500 border-b p-5 pb-2 px-10 sticky top-0 bg-white -z-0">
+        <div className="md:max-w-full max-w-[400px] overflow-x-auto overflow-scrolling-touch text-sm text-gray-500 border-b p-5 pb-2 px-10 sticky top-0 bg-white z-0">
             {/* <button className="flex-none px-2 py-1 rounded-md bg-gray-200 hover:bg-gray-300 focus:bg-gray-300">
               &lt;
             </button> */}
@@ -99,7 +99,7 @@ export default function Index({ result, sidebarPosts, catResult }) {
             </button> */}
           </div>
           {/* <div id="main" className="md:max-h-[950px] flex-none  overflow-hidden hover:overflow-y-auto p-5 px-10"> */}
-          <div id="main" className="flex-none  overflow-hidden hover:overflow-y-auto p-5 px-10">
+          <div id="main" className="flex-none  overflow-hidden hover:overflow-y-auto p-5 md:px-10 ">
             
             <div id="content">
               {isLoading ? (
