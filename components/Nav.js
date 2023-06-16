@@ -25,7 +25,7 @@ export default function Nav() {
 
   const getSuggestionResult = async () => {
     const data = await fetch(
-      `http://spundir.in/l9_blog/api/blog/search/${searchQuery}`
+      `https://spundir.in/l9_blog/api/blog/search/${searchQuery}`
     );
     const result = await data.json();
     setSuggestionData(result.blogs);
