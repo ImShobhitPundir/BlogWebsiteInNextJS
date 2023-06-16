@@ -36,10 +36,12 @@ export default function Nav() {
     let list = document.querySelector("ul");
     if (isNav) {
       // list.classList.add("top-[65px]");
-      list.classList.add("opacity-100");
+      // list.classList.add("opacity-100");
+      list.style.display = "block"
     } else {
       // list.classList.remove("top-[65px]");
-      list.classList.remove("opacity-100");
+      //list.classList.remove("opacity-100");
+      list.style.display = "none"
     }
   }
   return (
@@ -139,7 +141,7 @@ export default function Nav() {
         )}
       </div>
 
-      <ul className="md:flex md:space-x-7  md:static absolute bg-white md:w-auto w-full md:opacity-100 opacity-0  transition-all ease-in duration-100 pr-5 md:shadow-none shadow-xl z-[999]">
+      <ul className="md:flex md:space-x-7  md:static absolute bg-white md:w-auto w-full hidden  transition-all ease-in duration-100 pr-5 md:shadow-none shadow-xl z-[999]">
         <li className="md:px-0 px-5 md:py-5 py-1 border-t ">
           <Link href="/">Home</Link>
         </li>
