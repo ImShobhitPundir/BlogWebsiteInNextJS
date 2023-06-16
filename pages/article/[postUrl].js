@@ -30,7 +30,13 @@ export default function SingleArticle({ post, relatedPost }) {
       const totalHeight = contentDiv.scrollHeight - window.innerHeight + 200;
       const currentHeight = window.scrollY;
       const scrollPercentage = (currentHeight / totalHeight) * 100;
-      setProgress(Math.round(scrollPercentage));
+      const result = Math.round(scrollPercentage);
+      if(result <= 100){
+        setProgress(result);
+      }else{
+        setProgress(100);
+      }
+      
     }
     addEventListener("scroll", handleProgress);
     return () => {

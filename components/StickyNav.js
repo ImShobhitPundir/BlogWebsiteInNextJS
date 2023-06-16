@@ -8,7 +8,6 @@ export default function StickyNav({progress}) {
   const [searchQuery, setSearchQuery] = useState("");
   const [isSuggestionBox, setIsSuggestionBox] = useState(false);
   const [suggestionData, setSuggestionData] = useState([]);
- 
 
   useEffect(() => {
     // Debouncing
