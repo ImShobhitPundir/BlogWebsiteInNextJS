@@ -8,6 +8,7 @@ import Link from "next/link";
 import Shimmer from "@/components/Shimmer";
 import Footer from "@/components/Footer";
 import StickyNav from "@/components/StickyNav";
+import { baseUrl } from "@/utils/baseUrls";
 
 export default function SingleArticle({ post, relatedPost }) {
   const [isLoading, setIsLoading] = useState(true);
@@ -18,8 +19,6 @@ export default function SingleArticle({ post, relatedPost }) {
   }, []);
 
   useEffect(() => {
-    //const contentDiv = document.getElementById("content");
-    //const lastPost = contentDiv.querySelector("a:last-child");
     function handleProgress() {
       const contentDiv = document.getElementById("content");
       const totalHeight =
@@ -34,14 +33,33 @@ export default function SingleArticle({ post, relatedPost }) {
     };
   }, []);
 
-  if (isLoading) {
-    return <Shimmer />;
-  }
+ 
 
   return (
     <>
       <Head>
+        
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
         <title>{post.blog.title}</title>
+        <link rel="icon" type="image/png" sizes="32x32" href="/sp-favicon.png"/>
+        <meta name="description" content={post.blog.short_description}/>
+        <meta name="keywords" content={post.blog.keywords}/>
+        <meta name="author" content="Shobhit Pundir"/>
+        <meta name="robots" content="index, follow"/>
+        <meta name="referrer" content="no-referrer-when-downgrade"/>
+        <meta name="revisit-after" content="7 days"/>
+        <meta name="image" content={`${baseUrl}sp-logo.png`}/>
+        <meta property="og:title" content={post.blog.title} />
+        <meta property="og:description" content={post.blog.short_description}/>
+        <meta property="og:image" content={`${baseUrl}sp-logo.png`}/>
+        <meta property="og:url" content={baseUrl}/>
+        <meta property="og:type" content="website"/>
+        <meta name="twitter:card" content="summary_large_image"/>
+        <meta name="twitter:title" content={post.blog.title}/>
+        <meta name="twitter:description" content={post.blog.short_description}/>
+        <meta name="twitter:image" content={`${baseUrl}sp-logo.png`}></meta>
       </Head>
       {/* Progress Bar */}
 

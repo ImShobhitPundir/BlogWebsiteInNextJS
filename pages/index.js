@@ -11,6 +11,8 @@ export default function Index({ result, sidebarPosts, catResult }) {
   const [hasMore, setHasMore] = useState(true);
   const [isLoadingMore, setIsLoadingMore] = useState(false);
   const [posts, setPosts] = useState(result);
+  const [newPostsLoading, setNewPostsLoading] = useState(false);
+  const [newPosts, setNewPosts] = useState([]);
   const { cats } = catResult;
 
   useEffect(() => {
@@ -31,7 +33,7 @@ export default function Index({ result, sidebarPosts, catResult }) {
       if (result.length > 0) {
         setCurrentPage((prevPage) => prevPage + 1);
         setHasMore(true);
-        setPosts((prevPosts) => [...prevPosts, ...result]);
+        setNewPosts(result);
       } else {
         setHasMore(false);
       }
@@ -40,6 +42,19 @@ export default function Index({ result, sidebarPosts, catResult }) {
     }
     setIsLoadingMore(false);
   };
+
+  useEffect(() => {
+    if (newPosts.length > 0) {
+      setNewPostsLoading(true);
+      const timer = setTimeout(() => {
+        setPosts((prevPosts) => [...prevPosts, ...newPosts]);
+        setNewPosts([]);
+        setNewPostsLoading(false);
+      }, 1000);
+
+      return () => clearTimeout(timer);
+    }
+  }, [newPosts]);
 
   useEffect(() => {
     const handleScroll = debounce(() => {
@@ -85,21 +100,33 @@ export default function Index({ result, sidebarPosts, catResult }) {
           </div>
           {/* <div id="main" className="md:max-h-[950px] flex-none  overflow-hidden hover:overflow-y-auto p-5 px-10"> */}
           <div id="main" className="flex-none  overflow-hidden hover:overflow-y-auto p-5 px-10">
+            
             <div id="content">
               {isLoading ? (
-                <>
-                  <Shimmer />
-                  <Shimmer />
-                  <Shimmer />
-                  <Shimmer />
-                  <Shimmer />
-                </>
+                <div>
+                  {posts.map((post) => (
+                    <Link href={`/article/${post.url}`} key={post.id}>
+                      <BlogCard post={post} />
+                    </Link>
+                  ))}
+                </div>
               ) : (
-                posts.map((post) => (
-                  <Link href={`/article/${post.url}`} key={post.id}>
-                    <BlogCard post={post} />
-                  </Link>
-                ))
+                <div>
+                  {posts.map((post) => (
+                    <Link href={`/article/${post.url}`} key={post.id}>
+                      <BlogCard post={post} />
+                    </Link>
+                  ))}
+                  {newPostsLoading && (
+                    <div>
+                      <Shimmer />
+                      <Shimmer />
+                      <Shimmer />
+                      <Shimmer />
+                      <Shimmer />
+                    </div>
+                  )}
+                </div>
               )}
             </div>
           </div>
