@@ -1,2 +1,2 @@
 
-export const baseUrl = "http://spblog.vercel.app/";
+export const baseUrl = "https://spblog.vercel.app/";
