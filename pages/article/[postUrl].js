@@ -50,16 +50,16 @@ export default function SingleArticle({ post, relatedPost }) {
         <meta name="robots" content="index, follow"/>
         <meta name="referrer" content="no-referrer-when-downgrade"/>
         <meta name="revisit-after" content="7 days"/>
-        <meta name="image" content={`http://spundir.in/l9_blog/storage/blog/${post.blog.image1}`}/>
+        <meta name="image" content={`https://spundir.in/l9_blog/storage/blog/${post.blog.image1}`}/>
         <meta property="og:title" content={post.blog.title} />
         <meta property="og:description" content={post.blog.short_description}/>
-        <meta property="og:image" content={`http://spundir.in/l9_blog/storage/blog/${post.blog.image1}`}/>
+        <meta property="og:image" content={`https://spundir.in/l9_blog/storage/blog/${post.blog.image1}`}/>
         <meta property="og:url" content={`${baseUrl}article/${post.blog.url}`}/>
         <meta property="og:type" content="website"/>
         <meta name="twitter:card" content="summary_large_image"/>
         <meta name="twitter:title" content={post.blog.title}/>
         <meta name="twitter:description" content={post.blog.short_description}/>
-        <meta name="twitter:image" content={`http://spundir.in/l9_blog/storage/blog/${post.blog.image1}`}></meta>
+        <meta name="twitter:image" content={`https://spundir.in/l9_blog/storage/blog/${post.blog.image1}`}></meta>
       </Head>
       {/* Progress Bar */}
 
@@ -86,7 +86,7 @@ export default function SingleArticle({ post, relatedPost }) {
             </div>
 
             <img
-              src={`http://spundir.in/l9_blog/storage/blog/${post.blog.image1}`}
+              src={`https://spundir.in/l9_blog/storage/blog/${post.blog.image1}`}
               alt="Blog Image"
               className="object-cover w-full my-10"
             />
@@ -148,13 +148,13 @@ export async function getServerSideProps(context) {
   const { params, req, res, query } = context;
   const url = params.postUrl;
 
-  const data = await fetch(`http://spundir.in/l9_blog/api/pblog/single/${url}`);
+  const data = await fetch(`https://spundir.in/l9_blog/api/pblog/single/${url}`);
   const result = await data.json();
 
   const catID = result.blog.category_id;
 
   const retlatedData = await fetch(
-    `http://spundir.in/l9_blog/api/pblog/related/${catID}`
+    `https://spundir.in/l9_blog/api/pblog/related/${catID}`
   );
   const relatedPost = await retlatedData.json();
 

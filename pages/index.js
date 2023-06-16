@@ -26,7 +26,7 @@ export default function Index({ result, sidebarPosts, catResult }) {
 
     try {
       const response = await fetch(
-        `http://spundir.in/l9_blog/api/pblog/list/${currentPage * 4}/4`
+        `https://spundir.in/l9_blog/api/pblog/list/${currentPage * 4}/4`
       );
       const result = await response.json();
 
@@ -141,15 +141,15 @@ export default function Index({ result, sidebarPosts, catResult }) {
 }
 
 export async function getServerSideProps() {
-  const data = await fetch("http://spundir.in/l9_blog/api/pblog/list/0/4");
+  const data = await fetch("https://spundir.in/l9_blog/api/pblog/list/0/4");
   const result = await data.json();
 
   const sidebarData = await fetch(
-    "http://spundir.in/l9_blog/api/pblog/list/0/10"
+    "https://spundir.in/l9_blog/api/pblog/list/0/10"
   );
   const sidebarPosts = await sidebarData.json();
 
-  const catData = await fetch("http://spundir.in/l9_blog/api/pcats");
+  const catData = await fetch("https://spundir.in/l9_blog/api/pcats");
   const catResult = await catData.json();
 
   return {

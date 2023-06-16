@@ -71,14 +71,14 @@ export async function getServerSideProps(context) {
   const url = params.cat;
 
   const data = await fetch(
-    `http://spundir.in/l9_blog/api/pblog/category/${url}`
+    `https://spundir.in/l9_blog/api/pblog/category/${url}`
   );
   const result = await data.json();
 
-  const topData = await fetch("http://spundir.in/l9_blog/api/pblog/list/0/10");
+  const topData = await fetch("https://spundir.in/l9_blog/api/pblog/list/0/10");
   const topResult = await topData.json();
 
-  const catData = await fetch("http://spundir.in/l9_blog/api/pcats");
+  const catData = await fetch("https://spundir.in/l9_blog/api/pcats");
   const catResult = await catData.json();
 
   return {

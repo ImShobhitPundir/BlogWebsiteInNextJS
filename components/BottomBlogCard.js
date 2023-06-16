@@ -8,7 +8,7 @@ const BottomBlogCard = ({ post }) => {
       <div className="my-8">
         <div className="">
           <img
-            src={`http://spundir.in/l9_blog/storage/blog/${post.image1}`}
+            src={`https://spundir.in/l9_blog/storage/blog/${post.image1}`}
             alt="Blog Image"
             className="object-cover w-full h-64"
           />

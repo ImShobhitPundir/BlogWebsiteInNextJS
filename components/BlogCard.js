@@ -26,7 +26,7 @@ function BlogCard({ post }) {
       </div>
       <div className="col-span-2">
         <img
-          src={`http://spundir.in/l9_blog/storage/blog/${post.image1}`}
+          src={`https://spundir.in/l9_blog/storage/blog/${post.image1}`}
           alt="Blog Image"
           className="object-cover md:w-36 w-20 md:h-32 h-12"
         />
