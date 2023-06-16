@@ -8,10 +8,10 @@ function Main() {
             <span className="text-gray-800">Hi There,</span>
           </h1>
           <h2 className="md:text-[50px] text-[30px] font-bold  text-blue-900">
-            I'm Shobhit Pundir
+            I am Shobhit Pundir
           </h2>
           <p className="text-lg text-gray-800">
-            Hello everyone! I'm a{" "}
+            Hello everyone! I am a{" "}
             <span className="font-bold">Full Stack Developer</span> with over 5
             years of professional experience in the design, development, and
             implementation of web-based applications.{" "}
