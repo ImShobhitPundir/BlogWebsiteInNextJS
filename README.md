@@ -1,38 +1,56 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# SP Blog (NextJS)
 
-## Getting Started
+This is a blog website developed using Next.js and Tailwind CSS. It provides a user-friendly interface with multiple pages including a home page, categories page, and post page. The website utilizes dynamic pages for categories and posts, ensuring real-time updates by using `getServerSideProps` for API calls. This approach avoids the need for static HTML files, allowing for frequent post updates.
 
-First, run the development server:
+## Key Features
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+1. **Responsive Design:** The website is fully responsive, ensuring optimal viewing experience across different devices. The design is implemented using Tailwind CSS, providing flexibility and ease of customization.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. **Search Functionality:** The navigation bar includes a search box that allows users to search for posts by title and category. The search feature incorporates debouncing with a delay of 200ms, optimizing the API calls by reducing unnecessary requests. A maximum of 10 search suggestions are provided to enhance user experience.
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+3. **Infinite Scroll:** The home page utilizes infinite scroll, loading four posts at a time. A shimmer effect is displayed until the posts are fully loaded, creating a smooth and engaging browsing experience. Debouncing is implemented with a 200ms delay to control scrolling behavior efficiently.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+4. **Post Read Time:** Each post displays an estimated read time, allowing users to gauge the length of the content before diving in. This feature provides valuable information and helps users manage their time effectively.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+5. **Social Media Sharing:** Users can easily share posts on various social media platforms. This functionality encourages content sharing and enables readers to spread the word about interesting articles.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+6. **Reading Progress Bar:** The post page features a top green progress bar that indicates the reading progress as users scroll through the content. The progress bar's width increases gradually, reaching 100% when the user reaches the end of the post. This visual cue provides a sense of completion and helps users navigate lengthy articles more effectively.
 
-## Learn More
+## Installation and Usage
 
-To learn more about Next.js, take a look at the following resources:
+1. Clone the repository:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+   ```shell
+   git clone https://github.com/ImShobhitPundir/BlogWebsiteInNextJS.git
+2. Navigate to the project directory:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+   ```shell
+   cd your-repository
+3. Install the dependencies:
 
-## Deploy on Vercel
+   ```shell
+   npm install
+4. Run the development server:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+   ```shell
+   npm run dev
+5. Access the website in your browser at http://localhost:3000.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+### Demo
+Click here to see a live [Demo](https://spblog.vercel.app/) of the website.
+
+![Demo](https://spundir.in/images/spblog.png)
+
+### Contributing
+Contributions are welcome! If you encounter any issues or have suggestions for improvements, please open an issue or submit a pull request.
+
+### License
+This project is licensed under the MIT License. Feel free to use and modify the code according to your needs.
+
+### Acknowledgments
+I would like to express my gratitude to the open-source community for their valuable contributions and the developers of Next.js and Tailwind CSS for providing powerful tools to build modern web applications.
+
+### Contact
+If you have any questions, please feel free to contact me at er.shobhitpundir@gmail.com. I appreciate your interest and support!
+
+Happy blogging!
