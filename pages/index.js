@@ -84,9 +84,8 @@ export default function Index({ result, sidebarPosts, catResult }) {
     <>
       <div className="grid md:grid-cols-12 gred-cols flex">
         <div className="col-span-8">
+          <CategorySliderTop cats={cats} />
 
-          <CategorySliderTop cats={cats}/>
-          
           {/* <div id="main" className="md:max-h-[950px] flex-none  overflow-hidden hover:overflow-y-auto p-5 px-10"> */}
           <div
             id="main"
@@ -95,11 +94,11 @@ export default function Index({ result, sidebarPosts, catResult }) {
             <div id="content">
               {isLoading ? (
                 <div>
-                  {posts.map((post) => (
-                    <Link href={`/article/${post.url}`} key={post.id}>
-                      <BlogCard post={post} />
-                    </Link>
-                  ))}
+                  <Shimmer />
+                  <Shimmer />
+                  <Shimmer />
+                  <Shimmer />
+                  <Shimmer />
                 </div>
               ) : (
                 <div>

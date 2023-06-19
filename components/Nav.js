@@ -48,7 +48,7 @@ export default function Nav() {
     <div className="md:flex justify-between bg-white top-0 border-b relative place-content-center">
       <div className="flex justify-between p-5">
         <Link href="/" className="flex">
-          <img src="/sp-logo.png" alt="" width={40} />
+          <img src="/sp-logo.png" alt="spblog logo" width={40} height={29}/>
           <h4 className="font-bold text-xl text-gray-900 ml-4 md:block hidden">
             Shobhit Pundir
           </h4>

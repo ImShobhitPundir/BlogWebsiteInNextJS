@@ -11,9 +11,9 @@ export default function App({ Component, pageProps }) {
   return(
     <>
       <Head>
-        <meta charset="UTF-8" />
+        <meta charSet="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <meta httpEquiv="X-UA-Compatible" content="ie=edge" />
         <title>Shobhit Pundir | Blogs</title>
         <link rel="icon" type="image/png" sizes="32x32" href="/sp-favicon.png"/>
         <meta name="description" content="Welcome to Shobhit Pundir's web development blog. Explore insightful articles, tutorials, and tips on web development, front-end and back-end technologies, responsive design, user experience, and more. Learn from Shobhit Pundir, a seasoned web developer with 6 years of experience in the field. Stay updated with the latest trends and best practices in web development."/>

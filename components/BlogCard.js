@@ -1,8 +1,9 @@
 import React from "react";
 import { fDate, fToNow } from "@/utils/formatTime";
 import { readTime, removeHtml, wordsLimit } from "@/utils/formatString";
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import 'react-lazy-load-image-component/src/effects/blur.css';
 
-import Image from "next/image";
 
 function BlogCard({ post }) {
   return (
@@ -25,11 +26,20 @@ function BlogCard({ post }) {
 
       </div>
       <div className="col-span-2">
-        <img
+        {/* <img
           src={`https://spundir.in/l9_blog/storage/blog/${post.image1}`}
           alt="Blog Image"
           className="object-cover md:w-36 w-20 md:h-32 h-12"
-        />
+        /> */}
+        {typeof window !== 'undefined' && (
+          <LazyLoadImage
+            src={`https://spundir.in/l9_blog/storage/blog/${post.image1}`}
+            alt="Blog Image"
+            effect="blur"
+            className="object-cover md:w-36 w-20 md:h-32 h-12"
+          />
+        )}
+
       </div>
     </div>
   );
