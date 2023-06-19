@@ -11,12 +11,9 @@ export default function Index({ posts, catResult, catUrl, topResult }) {
   const { cats } = catResult;
 
   useEffect(() => {
-    setIsLoading(false); // Set loading state to false after initial render
+    setIsLoading(false); 
   }, []);
 
-  // if(isLoading){
-  //   return <Shimmer/>
-  // }
   return (
     <>
       <Head>
@@ -25,14 +22,13 @@ export default function Index({ posts, catResult, catUrl, topResult }) {
       <div className="grid md:grid-cols-12 gred-cols flex">
         <div className="col-span-8 ">
 
-        <CategorySliderTop cats={cats}/>
-
+        <CategorySliderTop cats={cats} catUrl={catUrl}/>
           <div
             id="main"
             className="md:max-h-[950px] flex-none  overflow-hidden hover:overflow-y-auto p-5 md:px-10 "
           >
             <div id="content">
-              {posts.map((post) => (
+              {posts?.map((post) => (
                 <Link href={`/article/${post.url}`} key={post.id}>
                   <BlogCard post={post} cats={cats} />
                 </Link>

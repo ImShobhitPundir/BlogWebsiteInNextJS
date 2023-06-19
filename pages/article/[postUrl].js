@@ -15,6 +15,8 @@ import {
   TwitterShareButton,
   LinkedinShareButton,
 } from "react-share";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import "react-lazy-load-image-component/src/effects/blur.css";
 
 export default function SingleArticle({ post, relatedPost }) {
   const [isLoading, setIsLoading] = useState(true);
@@ -31,12 +33,11 @@ export default function SingleArticle({ post, relatedPost }) {
       const currentHeight = window.scrollY;
       const scrollPercentage = (currentHeight / totalHeight) * 100;
       const result = Math.round(scrollPercentage);
-      if(result <= 100){
+      if (result <= 100) {
         setProgress(result);
-      }else{
+      } else {
         setProgress(100);
       }
-      
     }
     addEventListener("scroll", handleProgress);
     return () => {
@@ -99,7 +100,6 @@ export default function SingleArticle({ post, relatedPost }) {
               {post.blog.title}
             </h1>
             <div className="mt-6 border-y px-3 text-gray-500 flex justify-between place-items-center">
-
               <div>
                 <Link href={`/${post.blog.category_url}`}>
                   <span className="">{post.blog.category_name}</span>
@@ -150,12 +150,14 @@ export default function SingleArticle({ post, relatedPost }) {
                 </TwitterShareButton>
               </div>
             </div>
-
-            <img
-              src={`https://spundir.in/l9_blog/storage/blog/${post.blog.image1}`}
-              alt="Blog Image"
-              className="object-cover w-full my-10"
-            />
+            <div className="flex place-content-center">
+              <LazyLoadImage
+                src={`https://spundir.in/l9_blog/storage/blog/${post.blog.image1}`}
+                alt="Blog Image"
+                effect="blur"
+                className="object-cover w-full my-10"
+              />
+            </div>
 
             <div className="text-left">
               <ContentWithHtmlTag content={post.blog.short_description} />
@@ -181,7 +183,7 @@ export default function SingleArticle({ post, relatedPost }) {
           </div>
           {/* Related post */}
           <div className="border-t mt-10 pt-10">
-            <h3 className="font-extrabold text-xl">Related Post</h3>
+            <h2 className="font-extrabold text-xl">Related Post</h2>
             <div className="grid md:grid-cols-2 gred-cols gap-7">
               {relatedPost.length > 0
                 ? relatedPost.map((post, index) =>

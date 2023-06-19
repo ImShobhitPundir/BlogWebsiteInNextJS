@@ -26,9 +26,8 @@ export default function Footer() {
             Home
           </Link>
           </li>
-          <li className="md:px-0 px-5 md:py-5 py-1">About</li>
-          <li className="md:px-0 px-5 md:py-5 py-1">Work</li>
-          <li className="md:px-0 px-5 md:py-5 py-1">Contact</li>
+          <li className="md:px-0 px-5 md:py-5 py-1"><Link href="/about">About</Link></li>
+          <li className="md:px-0 px-5 md:py-5 py-1"><Link href="/contact">Contact</Link></li>
         </ul>
 
       </div>

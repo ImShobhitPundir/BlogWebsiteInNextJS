@@ -77,9 +77,6 @@ export default function Index({ result, sidebarPosts, catResult }) {
     };
   }, [isLoadingMore, hasMore]);
 
-  // if(isLoading){
-  //   return <Shimmer/>
-  // }
   return (
     <>
       <div className="grid md:grid-cols-12 gred-cols flex">

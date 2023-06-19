@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
 import { navVariants } from "@/utils/motion";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function StickyNav({progress}) {
   const [isNav, setIsNav] = useState(true);
@@ -43,11 +44,11 @@ export default function StickyNav({progress}) {
     }
   }
   return (
-    <div className="sticky top-0">
+    <div className="sticky top-0 z-10">
     <div className="md:flex justify-between bg-white  border-b relative place-content-center ">
       <div className="flex justify-between p-5">
         <Link href="/" className="flex">
-          <img src="/sp-logo.png" alt="spblog logo" width={40} height={29}/>
+          <Image src="/sp-logo.png" alt="spblog logo" width={48} height={35}/>
           <h4 className="font-bold text-xl text-gray-900 ml-4 md:block hidden">
             Shobhit Pundir
           </h4>
@@ -147,8 +148,9 @@ export default function StickyNav({progress}) {
         <li className="md:px-0 px-5 md:py-5 py-1">
           <Link href="/about">About</Link>
         </li>
-        <li className="md:px-0 px-5 md:py-5 py-1">Work</li>
-        <li className="md:px-0 px-5 md:py-5 py-1">Contact</li>
+        <li className="md:px-0 px-5 md:py-5 py-1">
+          <Link href="/contact">Contact</Link>
+        </li>
       </ul>
       </div>
       {/* Progress Bar */}

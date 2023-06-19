@@ -31,14 +31,14 @@ function BlogCard({ post }) {
           alt="Blog Image"
           className="object-cover md:w-36 w-20 md:h-32 h-12"
         /> */}
-        {typeof window !== 'undefined' && (
+       
           <LazyLoadImage
             src={`https://spundir.in/l9_blog/storage/blog/${post.image1}`}
             alt="Blog Image"
             effect="blur"
             className="object-cover md:w-36 w-20 md:h-32 h-12"
           />
-        )}
+        
 
       </div>
     </div>

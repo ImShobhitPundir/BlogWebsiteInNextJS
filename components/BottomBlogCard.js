@@ -1,15 +1,19 @@
 import React from "react";
 import { fDate, fToNow } from "@/utils/formatTime";
 import { readTime, removeHtml, wordsLimit } from "@/utils/formatString";
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import 'react-lazy-load-image-component/src/effects/blur.css';
 
 const BottomBlogCard = ({ post }) => {
   return (
     <div className="col-span-1">
       <div className="my-8">
         <div className="">
-          <img
+          
+          <LazyLoadImage
             src={`https://spundir.in/l9_blog/storage/blog/${post.image1}`}
             alt="Blog Image"
+            effect="blur"
             className="object-cover w-full h-64"
           />
         </div>
